@@ -4,8 +4,8 @@ import datetime
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
 class NoteBlock():
-    def __init__(self, commit_id=None, note_num=None):
-        self.note_id = (commit_id, note_num)
+    def __init__(self, commit_id=None, file_name=None, note_num=None):
+        self.note_id = (commit_id, file_name, note_num)
         self.created_at = datetime.datetime.now(tz=KST)
         self.note = None
         return 
