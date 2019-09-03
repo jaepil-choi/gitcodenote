@@ -17,3 +17,20 @@ class NoteBlock():
     def read(self):
         return (self.note_id, self.note)
 
+class Note():
+    def __init__(self, title):
+        self.title = title
+        self.notes = []
+        return 
+
+    def add_note(self, noteblock):
+        self.notes.append(noteblock)
+        return
+
+    def read(self):
+        print(self.title)
+        if self.notes != None:
+            for i in self.notes:
+                print(i)
+        return
+        
