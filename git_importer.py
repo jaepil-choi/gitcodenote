@@ -1,7 +1,10 @@
 from github import Github
 import re
 
-g = Github("cd4437a7a66ddd1420ae589b3a0d03c62fefb9f8")
+with open("github_token.txt", 'r') as f:
+    token = f.read()
+
+g = Github(token)
 
 commits = g.get_user().get_repo("gitcodenote_sandbox").get_commits() # commit은 최신순으로 정렬된다. 0번이 가장 최근의 커밋이다. 
 test_text = commits[0].files[0].raw_data['patch']
