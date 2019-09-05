@@ -1,11 +1,12 @@
 import os
 import datetime
+from git_importer import get_linked_note
 
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
 class NoteBlock(): 
     def __init__(self, belongs_to, commit_id=None, file_name=None, note_num=None):
-        self.note_id = (commit_id, file_name, note_num)
+        self.linked_note = get_linked_note(commit_id, file_name, note_num)
         self.created_at = datetime.datetime.now(tz=KST)
         self.note = None
         self.belongs_to = belongs_to
@@ -17,7 +18,7 @@ class NoteBlock():
         return
     
     def read(self):
-        return (self.note_id, self.note)
+        return (self.linked_note, self.note)
 
 class Note():
     def __init__(self, title):
