@@ -142,3 +142,6 @@ dmypy.json
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+
+# To safely keep Github personal access token. 
+github_token.txt
