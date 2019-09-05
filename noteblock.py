@@ -10,7 +10,6 @@ class NoteBlock():
         self.created_at = datetime.datetime.now(tz=KST)
         self.note = None
         self.belongs_to = belongs_to
-        belongs_to.notes.append(self)
         return 
 
     def write(self, contents):
