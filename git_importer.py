@@ -13,10 +13,10 @@ g = Github(token)
 commits = g.get_user().get_repo("gitcodenote_sandbox").get_commits() 
 
 def get_files(commit_num): # commit은 최신순으로 정렬된다. 0번이 가장 최근의 커밋이다. 
-    if commit_num >= len(commits):
+    if commit_num >= len(list(commits)):
         print("ERROR: commit_num out of range of commits list")
         return
-    return commits[commit_num].files 
+    return list(commits)[commit_num].files 
 
 def get_note_nums(file): # TODO: 고작 파일의 raw 하나 가져오는데 request와 bs를 쓰는 것은 비효율적인 것 같다. 
     html = urlopen(file.raw_url)

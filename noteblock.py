@@ -25,8 +25,8 @@ class Note():
         self.notes = []
         return 
 
-    def create_note(self):
-        noteblock = NoteBlock(self)
+    def create_note(self, commit_id=None, file_name=None, note_num=None):
+        noteblock = NoteBlock(self, commit_id=commit_id, file_name=file_name, note_num=note_num)
         self.notes.append(noteblock)
         return
 
@@ -49,7 +49,7 @@ class Note():
         print(self.title)
         if self.notes != None:
             for i in self.notes:
-                print(i)
+                print(i.read())
         return
 
 
